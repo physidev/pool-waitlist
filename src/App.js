@@ -143,7 +143,7 @@ function WaitlistForm() {
         <div><input type="text" id="name" className="custom-input" placeholder="Name" {...register('name')} /></div>
         <div><input type="tel" id="phone" className={`custom-input ${errors.phone ? 'error' : ''}`} placeholder={`${errors.phone ? '* ' : ''}U.S. Phone Number`} {...register('phone', { required: true })} /></div>
         <div><input type="email" id="email" className={`custom-input ${errors.email ? 'error' : ''}`} placeholder={`${errors.phone ? '* ' : ''}School Email for verif.`} {...register('email', { required: true })} /></div>
-        <div><button className="submit-button hoverable" type="submit">sign up</button></div>
+        <div><button className="submit-button hoverable" type="submit">join waitist</button></div>
       </form>
       <div style={style.success}>
         <h2>Thanks! We'll let you know when Pool becomes avaliable 🫡</h2>
