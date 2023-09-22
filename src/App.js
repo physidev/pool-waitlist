@@ -190,7 +190,7 @@ export function Home() {
 
 export default function App() {
   return (
-    <Div100vh>
+    <>
       <SVGBackground />
       <PoolTitle />
       <section id="home">
@@ -198,6 +198,6 @@ export default function App() {
       </ section>
       <HowItWorks />
       <About />
-    </Div100vh>
+    </>
   );
 }
