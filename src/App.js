@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import Div100vh from 'react-div-100vh';
 
 import './App.css';
 
@@ -189,7 +190,7 @@ export function Home() {
 
 export default function App() {
   return (
-    <>
+    <Div-100vh>
       <SVGBackground />
       <PoolTitle />
       <section id="home">
@@ -197,6 +198,6 @@ export default function App() {
       </ section>
       <HowItWorks />
       <About />
-    </>
+    </Div-100vh>
   );
 }
