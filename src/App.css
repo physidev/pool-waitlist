@@ -1,38 +1,254 @@
-.App {
+* {
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", sans-serif;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  background-color: #CAF0F8;
+  background-size: 150%;
+  color: black;
+}
+
+svg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+section {
+  padding: 25%;
+  height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
+
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+}
+
+.hoverable:hover {
+  cursor: pointer;
+}
+
+.pool-title {
+  width: 50vh;
+  text-align: center;
+  position: fixed;
+  top: 0; /* Stick to the top of the viewport */
+  left: 50%; /* Move to the middle horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+  z-index: 1;
+  justify-content: space-between;
+  align-items: center;
+  color:black;
+}
+
+.pool-title a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.content  {
+  position: absolute;
+  top: 50%; /* change to 50% to center */
+  transform: translateY(-50%);
+  width: 100%;
+  left: 0;
+  text-align: left;
+}
+
+.content ol{
+  font-size: 18px;
+}
+
+.box {
+  font-weight: lighter;
+  text-align: left;
+  color: black;
+  background: rgba(255, 255, 255, 0.7);
+  /* border: 2px solid rgba(255, 255, 255, 0.7); */
+  border-radius: 20px;
+  padding: 1% 5%;
+  margin-top: 15px;
+}
+
+.box li {
+  margin: 5px 0;
+}
+
+.small-button {
+  font-size: 24px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: white;
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
+#onboard-buttons {
+  display: flex;
+  justify-content: center;
+  margin-right: 30px;
+  margin-top: 30px;
+}
+
+#signup-button{
+  border: 2px solid rgb(8,36,76);
+  background: rgb(8,36,76);
+}
+
+#signin-button{
+  border: 2px solid white;
+  background-color: white;
+  color: rgb(8,36,76);
+}
+
+#statement h1{
+  font-size: 32px;
+  color: rgb(8,36,76);
+}
+
+#statement p{
+  font-size: 20px;
+  color: black;
+}
+
+:root { scroll-behavior: smooth; }
+
+.scroll-link-bottom {
+  position: absolute;
+  padding-bottom: 30px;
+  bottom: 0;
+  left: 50%; /* Center horizontally within the section */
+  transform: translateX(-50%);
+  font-size: 20px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+}
+
+.scroll-link-top {
+  position: absolute;
+  padding-top: 100px;
+  top: 0;
+  left: 50%; /* Center horizontally within the section */
+  transform: translateX(-50%);
+  font-size: 20px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+}
+
+a:-webkit-any-link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#about-us-content {
+  color: white;
+  background: rgba(8, 36, 76, 1);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+#about-us-content a{
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+/* form stuff */
+
+.custom-input,
+input[type="text"],
+input[type="email"],
+input[type="tel"]{
+  width: 225px; /* Set the width to the same value for all elements */
+  height: 40px; /* Set the height to the same value for all elements */
+  margin-bottom: 10px;
+  border-radius: 15px;
+  border: 2px solid #000;
+  background: #FFF;
+  font-size: 18px;
+  color: #000000;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.custom-input.error {
+  border: 2px solid #B00;
+  color: #B00;
+}
+
+.custom-input.error::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color:    #B00;
+}
+.custom-input.error:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+ color:    #B00;
+ opacity:  1;
+}
+.custom-input.error::-moz-placeholder { /* Mozilla Firefox 19+ */
+ color:    #B00;
+ opacity:  1;
+}
+.custom-input.error:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color:    #B00;
+}
+.custom-input.error::-ms-input-placeholder { /* Microsoft Edge */
+ color:    #B00;
+}
+
+.custom-input.error::placeholder { /* Most modern browsers support this now. */
+ color:    #B00;
+}
+
+.submit-button {
+  border-radius: 15px;
+  background: rgb(8, 36, 76);
+  border: 2px solid rgb(8, 36, 76);
+
+  width: 225px;
+  height: 40px; 
+  cursor: pointer;
+
+  color: #FFF;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+}
+
+.custom-select {
+  width: 225px; /* Set the width to the same value for all elements */
+  height: 40px; /* Set the height to the same value for all elements */
+  margin-bottom: 10px;
+  border-radius: 15px;
+  border: 2px solid rgb(8, 36, 76);
+  background: #FFF;
+  font-size: 18px;
+  color: #000000;
+  text-align: center;
+}
+
+#plan-form, #sign-in-form, #sign-up-form, #account-options {
+  text-align: center;
+}
+
+#cancellation-button, #new-match-button {
+  margin-bottom: 20px; 
+  margin-top: 10px; 
+  background-color: white; 
+  color: rgb(8,36,76);
+}
+
+#report-feedback-button a, #plan-trip-button a { /* on account page */
+  text-decoration: none;
+  color: inherit;
 }
