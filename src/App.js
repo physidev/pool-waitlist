@@ -161,7 +161,7 @@ export function Home() {
     <>
       <div className="content" style={style.intro}>
         <div id="statement">
-          <h1>Save money on your airport rideshares.</h1>
+          <h1>Save $20+ on your Uber/Lyft to school</h1>
           <p>
             <b>Share and split rides</b> to and from airports with your classmates
             who have similar travel dates, times, and destinations.
