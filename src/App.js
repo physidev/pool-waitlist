@@ -92,7 +92,7 @@ function About() {
     <section id="about-us">
       <a href="#home" className="scroll-link-bottom">
         <span class="fa-solid fa-chevron-up"></span><br />
-        join the waitlist
+        join now
       </a>
       <div className="content" >
         <div className="box" id="about-us-content">
@@ -139,14 +139,14 @@ function WaitlistForm() {
           success: { display: 'block' }
         }));
       })}>
-        <h2 className="title">join the waitlist</h2>
-        <div><input type="text" id="name" className="custom-input" placeholder="first name (optional)" {...register('name')} /></div>
-        <div><input type="tel" id="phone" className={`custom-input ${errors.phone ? 'error' : ''}`} placeholder={`${errors.phone ? '* ' : ''}U.S. phone number`} {...register('phone', { required: true })} /></div>
-        <div><input type="email" id="email" className={`custom-input ${errors.email ? 'error' : ''}`} placeholder={`${errors.phone ? '* ' : ''}school email`} {...register('email', { required: true })} /></div>
-        <div><button className="submit-button hoverable" type="submit">sign up</button></div>
+        <h2 className="title">join now</h2>
+        <div><input type="text" id="name" className="custom-input" placeholder="Name" {...register('name')} /></div>
+        <div><input type="tel" id="phone" className={`custom-input ${errors.phone ? 'error' : ''}`} placeholder={`${errors.phone ? '* ' : ''}U.S. Phone Number`} {...register('phone', { required: true })} /></div>
+        <div><input type="email" id="email" className={`custom-input ${errors.email ? 'error' : ''}`} placeholder={`${errors.phone ? '* ' : ''}School Email for verif.`} {...register('email', { required: true })} /></div>
+        <div><button className="submit-button hoverable" type="submit">join waitist</button></div>
       </form>
       <div style={style.success}>
-        <h2>thanks! we'll let you know when Pool becomes avaliable 🫡</h2>
+        <h2>Thanks! We'll let you know when Pool becomes avaliable 🫡</h2>
       </div>
     </>
   )
@@ -161,7 +161,7 @@ export function Home() {
     <>
       <div className="content" style={style.intro}>
         <div id="statement">
-          <h1>Save money on your airport rideshares.</h1>
+          <h1>Save $20+ on your Uber/Lyft to school</h1>
           <p>
             <b>Share and split rides</b> to and from airports with your classmates
             who have similar travel dates, times, and destinations.
@@ -172,7 +172,7 @@ export function Home() {
             intro: { display: 'none' },
             form: {}
           })}>
-            join the waitlist
+            join now
           </button>
         </div>
       </div>
