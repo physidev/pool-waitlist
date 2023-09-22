@@ -13,6 +13,11 @@ body {
   color: black;
 }
 
+html, body {
+  height: 100vh;  /* standard definition (as fallback) */
+  height: 100dvh; /* dynamic vh will make the trick on iOS */
+}
+
 svg {
   position: fixed;
   top: 0;
