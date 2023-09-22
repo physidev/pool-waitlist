@@ -140,9 +140,9 @@ function WaitlistForm() {
         }));
       })}>
         <h2 className="title">join now</h2>
-        <div><input type="text" id="name" className="custom-input" placeholder="first name (optional)" {...register('name')} /></div>
-        <div><input type="tel" id="phone" className={`custom-input ${errors.phone ? 'error' : ''}`} placeholder={`${errors.phone ? '* ' : ''}U.S. phone number`} {...register('phone', { required: true })} /></div>
-        <div><input type="email" id="email" className={`custom-input ${errors.email ? 'error' : ''}`} placeholder={`${errors.phone ? '* ' : ''}school email`} {...register('email', { required: true })} /></div>
+        <div><input type="text" id="name" className="custom-input" placeholder="Name" {...register('name')} /></div>
+        <div><input type="tel" id="phone" className={`custom-input ${errors.phone ? 'error' : ''}`} placeholder={`${errors.phone ? '* ' : ''}U.S. Phone Number`} {...register('phone', { required: true })} /></div>
+        <div><input type="email" id="email" className={`custom-input ${errors.email ? 'error' : ''}`} placeholder={`${errors.phone ? '* ' : ''}School Email for verif.`} {...register('email', { required: true })} /></div>
         <div><button className="submit-button hoverable" type="submit">sign up</button></div>
       </form>
       <div style={style.success}>
