@@ -172,6 +172,11 @@ a:-webkit-any-link {
 
 /* form stuff */
 
+#waitlist-form {
+  top:-50px;
+  position: relative;
+}
+
 .custom-input,
 input[type="text"],
 input[type="email"],

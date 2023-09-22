@@ -121,7 +121,7 @@ function WaitlistForm() {
   });
   return (
     <>
-      <form style={style.form} onSubmit={handleSubmit((data) => {
+      <form id="waitlist-form" style={style.form} onSubmit={handleSubmit((data) => {
         fetch('https://us-east-1.aws.data.mongodb-api.com/app/data-ejyoo/endpoint/waitlist', {
           method: 'POST',
           headers: {
