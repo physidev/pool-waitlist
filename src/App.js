@@ -70,8 +70,8 @@ function HowItWorks() {
         </div>
         <div className="box">
           <p style={{ fontWeight: 600 }}>
-            *Pool does not order your ride-share. we provide the contact information
-            of someone who shares your itenerary for you to finalize ride details
+            *Pool does not order your ride-share. We provide the contact information
+            of someone who shares your itinerary for you to finalize ride details
             with.
           </p>
         </div>
@@ -119,9 +119,11 @@ function WaitlistForm() {
     form: {},
     success: { display: 'none' }
   });
+  const [disabled, setDisabled] = useState(false)
   return (
     <>
       <form id="waitlist-form" style={style.form} onSubmit={handleSubmit((data) => {
+        setDisabled(true)
         fetch('https://us-east-1.aws.data.mongodb-api.com/app/data-ejyoo/endpoint/waitlist', {
           method: 'POST',
           headers: {
@@ -135,16 +137,19 @@ function WaitlistForm() {
             phone: data.phone,
             email: data.email
           })
-        }).then(() => setStyle({
-          form: { display: 'none' },
-          success: { display: 'block' }
-        }));
+        }).then(() => {
+          setDisabled(false);
+          setStyle({
+            form: { display: 'none' },
+            success: { display: 'block' }
+          })
+        });
       })}>
         <h2 className="title">join now</h2>
         <div><input type="text" id="name" className="custom-input" placeholder="Name" {...register('name')} /></div>
         <div><input type="tel" id="phone" className={`custom-input ${errors.phone ? 'error' : ''}`} placeholder={`${errors.phone ? '* ' : ''}U.S. Phone Number`} {...register('phone', { required: true })} /></div>
         <div><input type="email" id="email" className={`custom-input ${errors.email ? 'error' : ''}`} placeholder={`${errors.phone ? '* ' : ''}School Email for verif.`} {...register('email', { required: true })} /></div>
-        <div><button className="submit-button hoverable" type="submit">join waitist</button></div>
+        <div><button className="submit-button hoverable" type="submit" disabled={disabled}>join waitlist</button></div>
       </form>
       <div style={style.success}>
         <h2>Thanks! We'll let you know when Pool becomes avaliable 🫡</h2>
