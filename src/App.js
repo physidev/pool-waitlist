@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import Div100vh from 'react-div-100vh';
+import { useForm, Controller } from 'react-hook-form';
+import Input from 'react-phone-number-input/input';
 
 import './App.css';
 
@@ -113,12 +113,14 @@ function WaitlistForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
+    control
   } = useForm();
   const [style, setStyle] = useState({
     form: {},
     success: { display: 'none' }
   });
+  const [phone, setPhone] = useState('');
   const [disabled, setDisabled] = useState(false)
   return (
     <>
@@ -146,9 +148,17 @@ function WaitlistForm() {
         });
       })}>
         <h2 className="title">join now</h2>
-        <div><input type="text" id="name" className="custom-input" placeholder="Name" {...register('name')} /></div>
-        <div><input type="tel" id="phone" className={`custom-input ${errors.phone ? 'error' : ''}`} placeholder={`${errors.phone ? '* ' : ''}U.S. Phone Number`} {...register('phone', { required: true })} /></div>
-        <div><input type="email" id="email" className={`custom-input ${errors.email ? 'error' : ''}`} placeholder={`${errors.phone ? '* ' : ''}School Email for verif.`} {...register('email', { required: true })} /></div>
+        <div><input type="text" id="name" className={`custom-input ${errors.name ? 'error' : ''}`} placeholder={`${errors.name ? '* ' : ''}name`} {...register('name', { required: true })}/></div>
+        <div><Controller name="phone" control={control} rules={{required: true}} render={({field}) => (
+          <Input 
+            {...field}
+            id="phone"
+            className={`custom-input ${errors.phone ? 'error' : ''}`}
+            country="US"
+            placeholder={`${errors.phone ? '* ' : ''}U.S. phone number`}
+          />
+        )}/></div>
+        <div><input type="email" id="email" className={`custom-input ${errors.email ? 'error' : ''}`} placeholder={`${errors.email ? '* ' : ''}school email for verif.`} {...register('email', { required: true })} /></div>
         <div><button className="submit-button hoverable" type="submit" disabled={disabled}>join waitlist</button></div>
       </form>
       <div style={style.success}>
