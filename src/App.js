@@ -120,7 +120,6 @@ function WaitlistForm() {
     form: {},
     success: { display: 'none' }
   });
-  const [phone, setPhone] = useState('');
   const [disabled, setDisabled] = useState(false)
   return (
     <>
@@ -131,11 +130,8 @@ function WaitlistForm() {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify(data.name ? {
+          body: JSON.stringify({
             name: data.name,
-            phone: data.phone,
-            email: data.email
-          } : {
             phone: data.phone,
             email: data.email
           })
@@ -148,16 +144,16 @@ function WaitlistForm() {
         });
       })}>
         <h2 className="title">join now</h2>
-        <div><input type="text" id="name" className={`custom-input ${errors.name ? 'error' : ''}`} placeholder={`${errors.name ? '* ' : ''}name`} {...register('name', { required: true })}/></div>
-        <div><Controller name="phone" control={control} rules={{required: true}} render={({field}) => (
-          <Input 
+        <div><input type="text" id="name" className={`custom-input ${errors.name ? 'error' : ''}`} placeholder={`${errors.name ? '* ' : ''}name`} {...register('name', { required: true })} /></div>
+        <div><Controller name="phone" control={control} rules={{ required: true }} render={({ field }) => (
+          <Input
             {...field}
             id="phone"
             className={`custom-input ${errors.phone ? 'error' : ''}`}
             country="US"
             placeholder={`${errors.phone ? '* ' : ''}U.S. phone number`}
           />
-        )}/></div>
+        )} /></div>
         <div><input type="email" id="email" className={`custom-input ${errors.email ? 'error' : ''}`} placeholder={`${errors.email ? '* ' : ''}school email for verif.`} {...register('email', { required: true })} /></div>
         <div><button className="submit-button hoverable" type="submit" disabled={disabled}>join waitlist</button></div>
       </form>
